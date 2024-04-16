@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/app.css" />
+
+    <title>data</title>
+  </head>
+  <body>
+    <h1>Displaying all blogs</h1>
+
+    <form action="/blog/new" method="get">
+        <button style="margin-left: 12px;" type="submit">Add Comment</button>
+    </form>
+
+    <section>
+      <% for (let i of comments) { %>
+      <div>
+        <h1>Id:<%= i.id %></h1>
+        <h2><p>Name:<%= i.username %></p></h2>
+        <h4><p>Comment:<%= i.comment %></p></h4>
+        <a href="blogs/<%= i.id %>">Show </a>
+        <br />
+        <a href="blog/<%= i.id %>/edit"> Edit </a>
+        <br />
+
+        <form action="/blogs/<%= i.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </section>
+  </body>
+</html>
