@@ -1,0 +1,79 @@
+                                                  MongoDb Terminal Commands
+
+visit this link->		 https://www.codewithharry.com/blogpost/mongodb-cheatsheet/
+
+mongoose official doucmantation link -> https://mongoosejs.com/
+
+1:db.collection.find->  https://www.mongodb.com/docs/manual/reference/method/db.collection.find/
+
+ e.g -----> note: yaha student name ka collection liye hai database me.
+
+	Syntax - > db.collection.find(query, projection, options)
+
+	1.db.student.find({})            to showing all data inside student collecion    
+	2.db.student.find({}).pretty()   showing data in pretty formate.
+	3.db.student.find({name:"ram"})  showing data of all student having name is ram
+
+	projection-> kay dikhana hai kay nahi dikhana hai i.e student ke data me bhaut sara field hoga data ka i.e
+	             rollNo, mobNo, email, Name etc now projection ke help se only kisi eak field ko dekh sakte hai jaise 		     sirf name wala field or rollNo ka filed 
+
+	4.db.student.find({name:"ram"},{name:1}) now only name wala row show hoga if 0 kar dete then name wala choar kar 						sab dikhata. (eak se jayda dal sakte hai projection ke ander)	
+	5.db.student.find({name:"ram"},{name:1,_id:0}) now id ko zero karne se id show nahi hoga.
+	
+	// imse limit bhee laga sakte hai.
+	6.db.student.find({name:"ram"}).limit(2)  now ye bas two student ko show karega jinka name ram hoga.
+
+2.update
+	systex->db.collection_name.updateOne(<filter>,<update>)	  or db.collection_name.updateMany(<filter>,<update>)
+	
+	1.db.comment.updateOne({name:"nikesh"},{$set:{name:"abhishek"}})
+3.delete
+	Systex->db.collection_name.deleteMany(<filter>,<update>) or One 
+	
+	1.db.student.deleteMany({name:"kela"})
+	2.db.student.deleteMany({})     ye sara data delete kar dega.
+	
+Very Danger Command:--> db.dropDatabase() it completly delete database.
+
+
+		Mongoose part start from here-> i.e connection express with mongoDb using mongoose
+	
+1. npm install mongoose
+2. Importing ->
+	const mongoose = require('mongoose');
+3. Making connection see below->
+
+	mongoose.connect('mongodb://127.0.0.1:27017/nobita')                 "nobita" ye dbs ka name hai 
+	.then(()=>{
+    		console.log("DB connected successfully")
+	})
+	.catch((err)=>{
+    		console.log("error while connecting DB")
+   	 	console.log(err)
+	})
+4. creating schema visit this link.->   https://mongoosejs.com/docs/guide.html
+5. creating models or Collections or simply table.
+
+Collections in mongoDb-> like in sql hum table create karte thee data rakhne ke liye and uss table ke ander row/column 			banate thee name ka,email ka,mobNob ka same isme collections create karna padhata hai
+
+model-> model ke help se collections create karte hai
+
+        const Playlist = new mongoose.model("Playlist", playlistSchema) collectionName singular and first letter is capital
+	here Playlist is name of collections.
+	here playlistSchema is name of Schema 
+
+6.Node Create Document or row insert sql table.
+7.Save
+			
+-----------------------------------------------------------Comprasion in mongo db---------------------------------------------------------------
+
+visit this link to find the detail exp-->           https://www.mongodb.com/docs/manual/reference/operator/query-comparison/
+
+------------------------------------------------------------logical operaton in mongoDb----------------------------------------------------------
+
+visit this link to find the detail exp-->           https://www.mongodb.com/docs/manual/reference/operator/query-logical/
+
+
+-------------------------------------------------------------Mongoose Quarry----------------------------------------------------------------------
+
+visit this link to find the detail exp-->           https://mongoosejs.com/docs/6.x/docs/queries.html
