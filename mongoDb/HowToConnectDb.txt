@@ -1,0 +1,39 @@
+// mongoDb Connection way basically two way to connect 1st using promices and 2nd using async await.
+
+/*
+        const mongoose = require('mongoose')
+
+        const server = '127.0.0.1:27017' // REPLACE WITH YOUR OWN SERVER
+        const database = 'test'          // REPLACE WITH YOUR OWN DB NAME
+
+        mongoose
+        .connect(`mongodb://${server}/${database}`)
+        .then(() => {
+            console.log('MongoDB connected!!')
+        })
+        .catch(err => {
+            console.log('Failed to connect to MongoDB', err)
+        })
+*/
+
+/*
+
+// To use async-await syntax, you need to write an asynchronous function, as shown below:
+
+        const mongoose = require('mongoose')
+
+        const server = '127.0.0.1:27017' // REPLACE WITH YOUR OWN SERVER
+        const database = 'test'          // REPLACE WITH YOUR OWN DB NAME
+
+        const connectDB = async () => {
+        try {
+            await mongoose.connect(`mongodb://${server}/${database}`)
+
+            console.log('MongoDB connected!!')
+        } catch (err) {
+            console.log('Failed to connect to MongoDB', err)
+        }
+        }
+
+        connectDB()
+*/
