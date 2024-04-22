@@ -77,3 +77,4 @@ visit this link to find the detail exp-->           https://www.mongodb.com/docs
 -------------------------------------------------------------Mongoose Quarry----------------------------------------------------------------------
 
 visit this link to find the detail exp-->           https://mongoosejs.com/docs/6.x/docs/queries.html
+						https://mongoosejs.com/docs/api/model.html#model_Model.find
