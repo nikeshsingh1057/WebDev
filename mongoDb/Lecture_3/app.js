@@ -1,7 +1,7 @@
            // mongoDb atlas se connect karna.
 
-const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" });
+require('dotenv').config();
+
 const mongoose = require("mongoose");
 
 const DB_URL = process.env.MONGODB_URL;
@@ -11,7 +11,7 @@ console.log("Demo Database URL:", DB_URL);
 console.log("Demo Port:", DATABASE_PASSWORD);
 
 const DB = DB_URL.replace("<PASSWORD>", DATABASE_PASSWORD);
-// console.log(DB);
+console.log(DB);
 
 mongoose
   .connect(DB)
@@ -57,9 +57,10 @@ const getDocument = async () => {
   }
 };
 
-createDocument();
+// createDocument();
 // getDocument();
 
 console.log("nikch aaya");
 
 console.log("chal gaya");
+
